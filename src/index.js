@@ -39,37 +39,35 @@ function writeTmx(data) {
 	const layers = _.map(terrains, (terrain, index) => {
 		const { order, res } = terrain;
 		const dimensions = sizeOf(`${__dirname}/res/Ruins/${res}.png`);
-		// if (index === 1) {
-		// 	console.log('layerData', layerData);
-		// 	fs.writeFileSync(`${__dirname}/w3e.json`, JSON.stringify(layerData))
-		// }
 		const mapData = _.map(layerData, (row) => {
 			return _.map(row, (column) => {
 				const { gVariation } = column;
 				return gVariation === order ? order : 0;
 			});
 		});
-		return `<layer name="Layer-${index + 1}" width="${maxX}" height="${maxY}">
-        <data encoding="csv">
-        ${_.map(mapData, (row, rowIdx) => {
+		const layerCsv = _.map(mapData, (row, rowIdx) => {
 			return _.map(row, (column, columIndex) => {
 				const firstGid = (index + 1) * 32;
 				const realValue = getTileValue(
 					mapData,
 					rowIdx,
 					columIndex,
-					dimensions.width === 512 ? TILE_INDEX_LARGE : TILE_INDEX_SMALL
+					dimensions.width === 512 ? TILE_INDEX_LARGE : TILE_INDEX_SMALL,
+					index
 				);
 				return realValue === 0 ? 0 : firstGid + realValue;
 			});
-		})}
+		});
+		return `<layer name="Layer-${index + 1}" width="${maxY}" height="${maxX}">
+        <data encoding="csv">
+        ${layerCsv}
         </data>
         </layer>
         `;
 	});
 	const DIST_FOLDER = `${__dirname}`;
 	!fs.existsSync(DIST_FOLDER) && fs.mkdirSync(DIST_FOLDER, { recursive: true });
-	fs.writeFileSync(`${DIST_FOLDER}/w3e.tmx`, writeTmxBody(maxX, maxY, tileSet, layers));
+	fs.writeFileSync(`${DIST_FOLDER}/w3e.tmx`, writeTmxBody(maxY, maxX, tileSet, layers));
 }
 writeTmx(w3eData);
 
@@ -89,7 +87,7 @@ function findUseTerrainType(tilesetsData) {
 	return _.union(result);
 }
 
-function getTileValue(layerData, rowIdx, columIdx, TILED_INDEX) {
+function getTileValue(layerData, rowIdx, columIdx, TILED_INDEX, index) {
 	const tl = _.get(layerData, `[${rowIdx}][${columIdx}]`, 0) > 0 ? 2 : 0;
 	const tr = _.get(layerData, `[${rowIdx}][${columIdx + 1}]`, 0) > 0 ? 1 : 0;
 	const bl = _.get(layerData, `[${rowIdx + 1}][${columIdx}]`, 0) > 0 ? 8 : 0;
