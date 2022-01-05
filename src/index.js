@@ -6,11 +6,21 @@ const w3eData = require('./test/w3e.json');
 
 function writeTmx(data) {
 	const { _environment } = data;
-	const { mainTileset, maxX, maxY, tilesetsData } = _environment;
+	const { mainTileset, maxX, maxY, groundTilesets } = _environment;
+	const useTerrains = _.map(groundTilesets, (key, index) => {
+		return { ..._.find(TERRAINS[mainTileset], (terrain) => terrain.key === key), order: index };
+	});
+	let { tilesetsData } = _environment;
+	tilesetsData = _.map(tilesetsData, (row) => {
+		return _.map(row, (item) => {
+			const { gVariation } = item;
+			return { ...item, gVariation: gVariation % 16 };
+		});
+	});
 	const layerData = _.reverse(tilesetsData);
 	const useTerrain = findUseTerrainType(tilesetsData);
 
-	const terrains = _.filter(TERRAINS[mainTileset], (terrain) => {
+	const terrains = _.filter(useTerrains, (terrain) => {
 		return _.includes(useTerrain, terrain.order);
 	});
 	const tileSet = `
@@ -29,6 +39,10 @@ function writeTmx(data) {
 	const layers = _.map(terrains, (terrain, index) => {
 		const { order, res } = terrain;
 		const dimensions = sizeOf(`${__dirname}/res/Ruins/${res}.png`);
+		// if (index === 1) {
+		// 	console.log('layerData', layerData);
+		// 	fs.writeFileSync(`${__dirname}/w3e.json`, JSON.stringify(layerData))
+		// }
 		const mapData = _.map(layerData, (row) => {
 			return _.map(row, (column) => {
 				const { gVariation } = column;

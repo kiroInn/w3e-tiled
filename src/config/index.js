@@ -36,60 +36,104 @@ const TILE_INDEX_LARGE = [
 const TERRAINS = {
 	Z: [
 		{
+			key: 'Lgrd',
+			res: 'Lords_GrassDark'
+		},
+		{
 			key: 'Zdtr',
-			res: 'Ruins_DirtRough',
-			order: 1,
-			convert: 'Ldro,Fdro,Wdro,Bdsd,Adrd,Cdrd,Ndrd,Ydtr,Vdrr,Qdrr,Xdtr,Dbrk,Gbrk,Idtr,Odtr'
+			res: 'Ruins_DirtRough'
 		},
 		{
 			key: 'Zdrt',
-			res: 'Ruins_Dirt',
-			order: 2,
-			convert: 'Ldrt,Fdrt,Wdrt,Bdsr,Adrt,Cdrt,Ndrt,Vdrt,Qdrt,Ydrt,Xdrt,Ddrt,Gdrt,Idrt,Odrt'
+			res: 'Ruins_Dirt'
 		},
 		{
 			key: 'Zdrg',
-			res: 'Ruins_DirtGrass',
-			order: 3,
-			convert: 'Ldrg,Fdrg,Wsng,Bdrg,Adrg,Clvg,Nice,Ygsb,Vgrt,Qgrt,Xgsb,Dgrs,Ggrs,Idtr,Ofsl'
+			res: 'Ruins_DirtGrass'
 		},
 		{
 			key: 'Zbks',
-			res: 'Ruins_SmallBricks',
-			order: 4,
-			convert: 'Lrok,Frok,Wrok,Bdrr,Arck,Crck,Nrck,Ybtl,Vcbp,Qcbp,Xbtl,Dbrk,Gbrk,Ibkb,Osmb'
+			res: 'Ruins_SmallBricks'
 		},
 		{
 			key: 'Zbkl',
-			res: 'Ruins_LargeBricks',
-			order: 5,
-			convert: 'Lrok,Frok,Wrok,Bflr,Arck,Crck,Nrck,Ysqd,Vrck,Qrck,Xsqd,Drds,Grds,Irbk,Olgb'
+			res: 'Ruins_LargeBricks'
 		},
 		{
 			key: 'Ztil',
-			res: 'Ruins_RoundTiles',
-			order: 6,
-			convert: 'Lrok,Frok,Wrok,Bflr,Arck,Crck,Nrck,Yrtl,Vstp,Qstp,Xrtl,Dgrs,Ggrs,Itbk,Osqt'
+			res: 'Ruins_RoundTiles'
 		},
 		{
 			key: 'Zgrs',
-			res: 'Ruins_Grass',
-			order: 7,
-			convert: 'Lgrs,Fgrs,Wgrs,Bgrr,Agrs,Cgrs,Ngrs,Ygsb,Vgrt,Qgrt,Xgsb,Drds,Grds,Isnw,Ofsl'
+			res: 'Ruins_Grass'
 		},
 		{
 			key: 'Zvin',
-			res: 'Ruins_GrassDark',
-			order: 8,
-			convert: 'Lgrd,Fgrd,Wsnw,Bdsd,Agrd,Cvin,Nice,Ygsb,Vgrt,Qgrt,Xgsb,Drds,Grds,Isnw,Ofst'
+			res: 'Ruins_GrassDark'
 		},
 		{
 			key: 'Zsan',
-			res: 'Ruins_Sand',
-			order: 9,
-			convert: 'Ldrt,Fdrt,Wsnw,Bdsr,Adrt,Cpos,Nice,Yhdg,Vcrp,Qcrp,Xhdg,Dlav,Glav,Iice,Odtr'
+			res: 'Ruins_Sand'
 		}
 	]
 };
+// const TERRAINS = {
+// 	Z: [
+// 		{
+// 			key: 'Zdtr',
+// 			res: 'Ruins_DirtRough',
+// 			order: 1,
+// 			convert: 'Ldro,Fdro,Wdro,Bdsd,Adrd,Cdrd,Ndrd,Ydtr,Vdrr,Qdrr,Xdtr,Dbrk,Gbrk,Idtr,Odtr'
+// 		},
+// 		{
+// 			key: 'Zdrt',
+// 			res: 'Ruins_Dirt',
+// 			order: 2,
+// 			convert: 'Ldrt,Fdrt,Wdrt,Bdsr,Adrt,Cdrt,Ndrt,Vdrt,Qdrt,Ydrt,Xdrt,Ddrt,Gdrt,Idrt,Odrt'
+// 		},
+// 		{
+// 			key: 'Zdrg',
+// 			res: 'Ruins_DirtGrass',
+// 			order: 3,
+// 			convert: 'Ldrg,Fdrg,Wsng,Bdrg,Adrg,Clvg,Nice,Ygsb,Vgrt,Qgrt,Xgsb,Dgrs,Ggrs,Idtr,Ofsl'
+// 		},
+// 		{
+// 			key: 'Zbks',
+// 			res: 'Ruins_SmallBricks',
+// 			order: 4,
+// 			convert: 'Lrok,Frok,Wrok,Bdrr,Arck,Crck,Nrck,Ybtl,Vcbp,Qcbp,Xbtl,Dbrk,Gbrk,Ibkb,Osmb'
+// 		},
+// 		{
+// 			key: 'Zbkl',
+// 			res: 'Ruins_LargeBricks',
+// 			order: 5,
+// 			convert: 'Lrok,Frok,Wrok,Bflr,Arck,Crck,Nrck,Ysqd,Vrck,Qrck,Xsqd,Drds,Grds,Irbk,Olgb'
+// 		},
+// 		{
+// 			key: 'Ztil',
+// 			res: 'Ruins_RoundTiles',
+// 			order: 6,
+// 			convert: 'Lrok,Frok,Wrok,Bflr,Arck,Crck,Nrck,Yrtl,Vstp,Qstp,Xrtl,Dgrs,Ggrs,Itbk,Osqt'
+// 		},
+// 		{
+// 			key: 'Zgrs',
+// 			res: 'Ruins_Grass',
+// 			order: 7,
+// 			convert: 'Lgrs,Fgrs,Wgrs,Bgrr,Agrs,Cgrs,Ngrs,Ygsb,Vgrt,Qgrt,Xgsb,Drds,Grds,Isnw,Ofsl'
+// 		},
+// 		{
+// 			key: 'Zvin',
+// 			res: 'Ruins_GrassDark',
+// 			order: 8,
+// 			convert: 'Lgrd,Fgrd,Wsnw,Bdsd,Agrd,Cvin,Nice,Ygsb,Vgrt,Qgrt,Xgsb,Drds,Grds,Isnw,Ofst'
+// 		},
+// 		{
+// 			key: 'Zsan',
+// 			res: 'Ruins_Sand',
+// 			order: 9,
+// 			convert: 'Ldrt,Fdrt,Wsnw,Bdsr,Adrt,Cpos,Nice,Yhdg,Vcrp,Qcrp,Xhdg,Dlav,Glav,Iice,Odtr'
+// 		}
+// 	]
+// };
 
 module.exports = { TERRAINS, TILE_INDEX_LARGE, TILE_INDEX_SMALL };
