@@ -53,7 +53,7 @@ function writeTmx(data) {
 					rowIdx,
 					columIndex,
 					dimensions.width === 512 ? TILE_INDEX_LARGE : TILE_INDEX_SMALL,
-					index
+					dimensions.width === 512
 				);
 				return realValue === 0 ? 0 : firstGid + realValue;
 			});
@@ -87,7 +87,7 @@ function findUseTerrainType(tilesetsData) {
 	return _.union(result);
 }
 
-function getTileValue(layerData, rowIdx, columIdx, TILED_INDEX, index) {
+function getTileValue(layerData, rowIdx, columIdx, TILED_INDEX, isLarge) {
 	const tl = _.get(layerData, `[${rowIdx}][${columIdx}]`, 0) > 0 ? 2 : 0;
 	const tr = _.get(layerData, `[${rowIdx}][${columIdx + 1}]`, 0) > 0 ? 1 : 0;
 	const bl = _.get(layerData, `[${rowIdx + 1}][${columIdx}]`, 0) > 0 ? 8 : 0;
@@ -95,7 +95,9 @@ function getTileValue(layerData, rowIdx, columIdx, TILED_INDEX, index) {
 	if (tl === 0 && tr === 0 && bl === 0 && br === 0) {
 		return 0;
 	}
-	return _.indexOf(TILED_INDEX, tl + tr + bl + br) + 1;
+	const total = tl + tr + bl + br;
+	const random = isLarge && total >= 15 ? total + _.random(0, 6) : total;
+	return _.indexOf(TILED_INDEX, random) + 1;
 }
 
 function getDefaultTileSet() {
