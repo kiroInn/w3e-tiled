@@ -1,0 +1,72 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "VillageFall_CobblePath.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "hotspot.tmx": {
+            "scale": 0.37619628906249997,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1026.0600947498217,
+                "y": 1024.7310013628398
+            }
+        },
+        "hotspot.tmx#Lords_GrassDark": {
+            "scaleInDock": 1
+        },
+        "hotspot.tmx#Ruins_Grass": {
+            "scaleInDock": 1
+        },
+        "hotspot.tmx#Ruins_LargeBricks": {
+            "scaleInDock": 1
+        },
+        "hotspot.tmx#Ruins_RoundTiles": {
+            "scaleInDock": 1
+        },
+        "hotspot.tmx#Ruins_SmallBricks": {
+            "scaleInDock": 1
+        },
+        "pudge-wars.tmx": {
+            "scale": 0.32,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 721.875,
+                "y": 757.8125
+            }
+        },
+        "pudge-wars.tmx#VillageFall_CobblePath": {
+            "scaleInDock": 0.3557
+        }
+    },
+    "last.imagePath": "/Users/haoli/Code/cocos/w3e-tiled/src/res/Icecrown",
+    "map.height": 24,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 128,
+    "map.tileWidth": 128,
+    "map.width": 24,
+    "openFiles": [
+    ],
+    "project": "Pudge-Wars.tiled-project",
+    "recentFiles": [
+        "pudge-wars.tmx",
+        "VillageFall_CobblePath.tsx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 128,
+        "width": 128
+    }
+}
